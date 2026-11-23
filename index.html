@@ -811,6 +811,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   #globeHint.on{display:block}
   /* 操作欄を出したり隠したりするボタン(地図を広く見たいとき用) */
   /* 地図の右上に置くボタン(縦に並べる) */
+  #blogLink{display:none;position:absolute;right:12px;bottom:12px;z-index:710;font-size:.78rem;color:var(--text);text-decoration:none;background:rgba(11,18,32,.85);border:1px solid var(--line);padding:6px 12px;border-radius:999px;white-space:nowrap;max-width:70%;overflow:hidden;text-overflow:ellipsis}
+  #blogLink.on{display:block}
+  #blogLink:hover{border-color:var(--sub)}
   #mapBtns{position:absolute;right:12px;top:12px;z-index:710;display:flex;flex-direction:column;gap:8px}
   #mapBtns button{width:40px;height:40px;display:flex;align-items:center;justify-content:center;
     font-size:1.1rem;line-height:1;cursor:pointer;padding:0;border:1px solid var(--line);
@@ -1138,6 +1141,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div id="issDot" class="ico ico-sat only"></div>
     <div id="issHi" class="ico ico-sat only"></div>
     <div id="issCard" role="tooltip"></div>
+    <a id="blogLink" href="https://nyankokoubou.blogspot.com/2026/11/iss.html" target="_blank" rel="noopener" data-t="blogLink">くわしい説明（ブログ記事）</a>
     <div id="mapBtns">
     <button id="viewSwap" class="ico ico-map only" type="button"></button>
     <button class="pbtn ico ico-scope only" type="button" data-p="passCard" data-ta="aria-label:passTitle" data-ta2="data-tip:passTitle"></button>
@@ -2134,6 +2138,7 @@ function T(k, vars){
 }
 
 I18N.ja = {
+blogLink:'くわしい説明（ブログ記事）',
 issName:'国際宇宙ステーション',
 heading:'進行方角',
 fixOrbit:'軌道修正',
@@ -2214,6 +2219,7 @@ geoNone:'この端末では現在地を使えません。', geoFail:'現在地�
 dateFmt:'{m}/{d}({w}) {h}:{i}'
 };
 I18N.en = {
+blogLink:'About this page (Japanese blog)',
 issName:'International Space Station',
 heading:'Heading',
 fixOrbit:'Orbit boost',
@@ -6350,6 +6356,7 @@ function start(){
   setInterval(tick, 1000);
 }
 start();
+try{ if(window.self===window.top){ var __bl=document.getElementById('blogLink'); if(__bl) __bl.classList.add('on'); } }catch(e){}
 </script>
 </body>
 </html>
